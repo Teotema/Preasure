@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Виміри</h1>
+
+@foreach(var presure in Model.Presures)
+{
+    <table style="width:100%" >
+        <tr><th>Початок вимірювання</th><th>Кінець вимірювання</th><th>Середній тиск</th></tr>
+        <tr>
+                <td>@presure.Start</td>
+                <td>@presure.End</td>
+                <td>@(presure.Mean/100)</td>
+            
+        </tr>
+       
+       
+    </table>
+   
+    <h6>Значення вимірів</h6>
+    <table  style="width:100% ;  border-bottom: 1px solid black;">
+          <tr>
+                @foreach (var pr in presure.Presures)
+                {
+                      <td>@(pr/100)</td>
+                }
+            
+        </tr>
+    </table>
+      
+}
+
+
